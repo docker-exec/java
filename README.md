@@ -6,7 +6,7 @@ A Dockerfile describing an container capable of executing Java source files.
 
 ```sh
 git clone https://github.com/docker-exec/java.git
-docker build -t dexec/java .
+docker build -t dexec/lang-java .
 ```
 
 # Usage
@@ -16,7 +16,7 @@ In a directory containing a script e.g. foo.java, run:
 ```sh
 docker run -t --rm \
     -v $(pwd -P)/foo.java:/tmp/dexec/build/foo.java \
-    dexec/java foo.java
+    dexec/lang-java foo.java
 ```
 
 ## Passing arguments to the script
@@ -34,7 +34,7 @@ Each argument passed must be prefixed in this way, e.g.
 ```sh
 docker run -t --rm \
     -v $(pwd -P)/foo.java:/tmp/dexec/build/foo.java \
-    dexec/java foo.java \
+    dexec/lang-java foo.java \
     --arg='hello world' \
     --arg=foo \
     --arg=bar
@@ -55,7 +55,7 @@ Each argument passed must be prefixed in this way, e.g.
 ```sh
 docker run -t --rm \
     -v $(pwd -P)/foo.java:/tmp/dexec/build/foo.java \
-    dexec/java foo.java \
+    dexec/lang-java foo.java \
     --build-arg=-some-compiler-option \
     --build-arg=some-compiler-option-value
 ```
